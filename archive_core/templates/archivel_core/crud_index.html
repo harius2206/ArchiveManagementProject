@@ -1,0 +1,29 @@
+{% extends "archive_core/base.html" %}
+{% block content %}
+<h2>Список документів для редагування</h2>
+<p><a href="{% url 'document_create' %}" class="btn btn-success">Додати новий</a></p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Назва</th>
+            <th>Фонд</th>
+            <th>Категорія</th>
+            <th>Операції</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in model %}
+        <tr>
+            <td>{{ item.title }}</td>
+            <td>{{ item.fund_number }}</td>
+            <td>{{ item.category }}</td>
+            <td>
+                <a href="{% url 'document_edit' item.id %}">Edit</a> |
+                <a href="{% url 'document_details' item.id %}">Details</a> |
+                <a href="{% url 'document_delete' item.id %}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
