@@ -1,0 +1,27 @@
+{% extends ".base.html" %}
+
+{% block title %}Документи{% endblock %}
+
+{% block content %}
+<h2>Список документів</h2>
+
+{% for m in model %}
+<div class="row panel border-bottom mb-3 pb-2">
+    <div class="col-12">
+        <h3><strong>{{ m.title }}</strong></h3>
+        <span class="lead">Номер фонду: {{ m.fund_number }}</span><br />
+        <span class="lead">Категорія: {{ m.category }}</span><br />
+        <span class="lead">Дата створення: {{ m.creation_date|date:"d.m.Y" }}</span><br />
+
+        {% if m.note %}
+            <strong class="lead">Примітка:</strong>
+            {% include "archive_core/partials/_descriptive_block.html" with text=m.note %}
+        {% endif %}
+
+        <div class="mt-2">
+            {% include "archive_core/partials/_descriptive_info.html" with description=m.description %}
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}

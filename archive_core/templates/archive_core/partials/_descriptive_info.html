@@ -1,0 +1,10 @@
+{% if description %}
+    <hr />
+    <p class="fw-bold">Опис:</p>
+    {% with lines=description.splitlines %}
+        {% for line in lines %}
+            <p class="lead">{{ line }}</p>
+        {% endfor %}
+    {% endwith %}
+    <hr />
+{% endif %}
