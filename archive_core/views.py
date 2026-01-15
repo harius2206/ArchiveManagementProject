@@ -1,13 +1,6 @@
-from django.shortcuts import render, redirect, get_object_or_404
-from .uow import DjangoUnitOfWork
-from .forms import DocumentEditingForm, DocumentBrowsingModel
-from .models import Document
-
-# Головна сторінка
 def index(request):
     return render(request, 'archive_core/index.html')
 
-# Про сайт
 def about(request):
     return render(request, 'archive_core/about.html')
 
@@ -56,3 +49,12 @@ def document_delete(request, id):
 def document_details(request, id):
     doc = get_object_or_404(Document, id=id)
     return render(request, 'archive_core/document_details.html', {'object': doc})
+
+from django.shortcuts import render, redirect, get_object_or_404
+from .uow import DjangoUnitOfWork
+from .forms import DocumentEditingForm, DocumentBrowsingModel
+from .models import Document
+
+
+
+
