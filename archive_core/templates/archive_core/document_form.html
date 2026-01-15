@@ -1,0 +1,10 @@
+{% extends "archive_core/_base.html" %}
+{% block content %}
+<h2>{{ title }}</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Зберегти</button>
+    <a href="{% url 'documents_info' %}" class="btn btn-secondary">Скасувати</a>
+</form>
+{% endblock %}

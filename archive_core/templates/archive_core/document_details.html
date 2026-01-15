@@ -1,0 +1,42 @@
+{% extends "archive_core/_base.html" %}
+
+{% block title %}Деталі документа{% endblock %}
+
+{% block content %}
+<h2>Детальна інформація про документ</h2>
+
+<div class="card shadow-sm mt-4">
+    <div class="card-header bg-primary text-white">
+        <h4 class="mb-0">{{ object.title|default:"Невказано" }}</h4>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-6">
+                <p><strong>ID:</strong> {{ object.id }}</p>
+                <p><strong>Номер фонду:</strong> {{ object.fund_number|default:"Невказано" }}</p>
+                <p><strong>Категорія:</strong> {{ object.category|default:"Невказано" }}</p>
+            </div>
+            <div class="col-md-6">
+                <p><strong>Дата створення:</strong> {{ object.creation_date|date:"d.m.Y"|default:"Невказано" }}</p>
+                <p><strong>Архіваріус:</strong> {{ object.archivist_name|default:"Невказано" }}</p>
+            </div>
+        </div>
+
+        {% if object.note %}
+            <hr>
+            <h5>Примітка:</h5>
+            {% include "archive_core/partials/_descriptive_block.html" with text=object.note %}
+        {% endif %}
+
+        {% if object.description %}
+            <hr>
+            <h5>Опис:</h5>
+            {% include "archive_core/partials/_descriptive_info.html" with description=object.description %}
+        {% endif %}
+    </div>
+    <div class="card-footer">
+        <a href="{% url 'document_edit' object.id %}" class="btn btn-warning">Редагувати</a>
+        <a href="{% url 'documents_info' %}" class="btn btn-secondary">Назад до списку</a>
+    </div>
+</div>
+{% endblock %}

@@ -1,4 +1,4 @@
-{% extends "archivel_core/_base.html" %} {% block title %}Документи{% endblock %}
+{% extends "archive_core/_base.html" %} {% block title %}Документи{% endblock %}
 
 {% block content %}
 <h2>Список документів</h2>
@@ -13,11 +13,11 @@
 
         {% if m.note %}
             <strong class="lead">Примітка:</strong>
-            {% include "archivel_core/partials/_descriptive_block.html" with text=m.note %}
+            {% include "archive_core/partials/_descriptive_block.html" with text=m.note %}
         {% endif %}
 
         <div class="mt-2">
-            {% include "archivel_core/partials/_descriptive_info.html" with description=m.description %}
+            {% include "archive_core/partials/_descriptive_info.html" with description=m.description %}
         </div>
     </div>
 </div>
