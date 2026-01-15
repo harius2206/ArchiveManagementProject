@@ -1,0 +1,15 @@
+{% extends "archivel_core/_base.html" %}
+
+{% block title %}Про сайт{% endblock %}
+
+{% block content %}
+<h2>Про сайт</h2>
+<p>Цей проєкт реалізує редактор даних для керування архівними одиницями.</p>
+<div class="card card-body bg-light">
+    <h4>Розробник: Куцолабський М.В.</h4>
+    <p>Технології: Python, Django, Repository Pattern, Unit of Work.</p>
+</div>
+<p class="mt-3">
+    <a href="{% url 'index' %}" class="btn btn-secondary">На головну</a>
+</p>
+{% endblock %}

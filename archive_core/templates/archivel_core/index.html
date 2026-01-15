@@ -1,0 +1,13 @@
+{% extends "archivel_core/_base.html" %}
+
+{% block title %}Головна{% endblock %}
+
+{% block content %}
+<div class="jumbotron">
+    <h1>Вітаємо у ПО "Керування архівами"</h1>
+    <p class="lead">Це система для зручного збереження та перегляду архівних документів.</p>
+    <hr class="my-4">
+    <p>Ви можете переглянути повний список документів за посиланням нижче.</p>
+    <a class="btn btn-primary btn-lg" href="{% url 'documents_info' %}" role="button">Переглянути документи</a>
+</div>
+{% endblock %}
